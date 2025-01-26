@@ -1,4 +1,7 @@
 package gestionhotel;
+import entites.Client ;
+import entites.Chambre;
+import entites.Hotel;
 
 public class Application {
     public static void main(String[] args) {
@@ -38,18 +41,18 @@ public class Application {
 		hotel.afficherChambresDisponibles();
 		
 		// Changement de la réservation du client 1 et de la chamble 1 à la chambre 2 
-		hotel.changerAffectation(client1,chambre1,chambre2);
+		//cacherhotel.changerAffectation(client1,chambre1,chambre2);
 		
 		// Réservation d'une chambre
 		hotel.reserverChambre(client2, chambre1, dateDebut, dateFin);
 		
-		hotel.afficherReservations();
-		hotel.afficherChambresDisponibles();
+		//cacherhotel.afficherReservations();
+		//cacherhotel.afficherChambresDisponibles();
 		
 		// Supression d'une réservation
-		hotel.supressionReservation(client1,chambre2);
+		//cacher hotel.supressionReservation(client1,chambre2);
 		
-		hotel.afficherReservations();
-		hotel.afficherChambresDisponibles();		
+		//cacherhotel.afficherReservations();
+		//cacherhotel.afficherChambresDisponibles();
     }
 }
