@@ -12,6 +12,12 @@ public class Reservation {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
     }
+    public String getClient() {
+        return client;
+    }
+    public String getChambre() {
+        return String.valueOf(chambre);
+    }
 
     public String toString() {
         System.out.println("--------Reservation----------");

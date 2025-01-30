@@ -8,7 +8,7 @@ public class Hotel {
     private String adresse ;
     private String ville ;
     private ArrayList<Chambre> listeChambre = new ArrayList<>();
-    private ArrayList<Reservation> listeReservation = new ArrayList<Reservation>();
+    private ArrayList<Object> listeReservation = new ArrayList<Object>();
 
     public Hotel(String nom, String adresse, String ville) {
         this.nom = nom;
@@ -18,16 +18,25 @@ public class Hotel {
     public void ajouterChambre(Chambre chambre) {
         listeChambre.add(chambre);
     }
-    public void verifierChambresDisponibles(Chambre chambre) {
-        if (listeChambre.contains(chambre)) {
-            listeChambre.remove(chambre);
+    public boolean chambreEstDisponible(Integer numChambre) {
+        for (Object reservation : listeReservation) {
+            if (reservation instanceof Reservation) {
+                Reservation res = (Reservation) reservation;
+                if (Integer.parseInt(res.getChambre()) == numChambre) {
+                    return false;
+                }
+            }
         }
+        return true;
     }
+
     public void afficherChambresDisponibles() {
-        System.out.println("------Chambres dispos----------");
+        System.out.println("------Chambres dispos----------");;
         for (Chambre chambre : listeChambre) {
-            verifierChambresDisponibles(chambre) ;
-            System.out.println(chambre.toString());
+           if(chambreEstDisponible(chambre.getNumero())){
+               System.out.println(chambre.toString()) ;
+            }
+
             }
         }
 
@@ -35,9 +44,20 @@ public class Hotel {
         listeReservation.add(new Reservation(client,chambre,dateDebut,dateFin));
     }
     public void afficherReservations() {
-        for(Reservation reservation : listeReservation) {
+        for(Object reservation : listeReservation) {
             System.out.println(reservation.toString());
         }
+    }
+    public void changerAffectation(Client client , Chambre chambre1 , Chambre chambre2) {
+       for(int i = 0 ; i < listeReservation.size() ; i++) {
+           if(listeReservation.get(i) instanceof Chambre) {
+               Chambre ch = (Chambre) listeReservation.get(i);
+               if(ch.equals(chambre1) ){
+                   listeReservation.set(i,chambre2);
+               }
+           }
+
+       }
     }
 
 }
