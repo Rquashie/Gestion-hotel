@@ -47,7 +47,7 @@ public class Application {
 		hotel.reserverChambre(client2, chambre1, dateDebut, dateFin);
 		
 		hotel.afficherReservations();
-		//cacherhotel.afficherChambresDisponibles();
+		hotel.afficherChambresDisponibles();
 		
 		// Supression d'une réservation
 		//cacher hotel.supressionReservation(client1,chambre2);

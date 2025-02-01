@@ -18,10 +18,14 @@ public class Reservation {
     public String getChambre() {
         return String.valueOf(chambre);
     }
+    public void setChambre(int chambre) {
+        this.chambre = chambre;
+    }
 
     public String toString() {
-        System.out.println("--------Reservation----------");
-        return "Client : " + client + "\nChambre : " + chambre + "\nDateDebut : " + dateDebut + "\nDateFin : " + dateFin+"\n";
+
+        return "------Réservation------- \n" +
+                "Client : " + client + "\nChambre : " + chambre + "\nDateDebut : " + dateDebut + "\nDateFin : " + dateFin+"\n";
 
     }
 }

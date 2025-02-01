@@ -9,7 +9,7 @@ public class Chambre  {
         this.type = type;
     }
     public int getNumero() {
-        return numero;
+        return this.numero;
     }
     public String getType() {
         return type;

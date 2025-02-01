@@ -43,9 +43,9 @@ public class Hotel {
     public void reserverChambre(Client client , Chambre chambre , String dateDebut , String dateFin) {
         if (verifierChambre(chambre.getNumero())) {
             listeReservation.add(new Reservation(client, chambre, dateDebut, dateFin));
-            System.out.println("Réservation effectué pour la chambre " + chambre.getNumero());
+            System.out.println("Réservation effectué");
         } else {
-            System.out.println("Le chambre " + chambre.getNumero() + " est déja réservée");
+            System.out.println("Le chambre déja réservée");
         }
     }
 
@@ -64,9 +64,10 @@ public class Hotel {
     }
 
     public void changerAffectation(Client client , Chambre chambre1 , Chambre chambre2) {
-      for(int i = 0 ; i < listeChambre.size() ; i++) {
-          if(Objects.equals(chambre1, listeChambre.get(i))) {
-              listeChambre.set(i,chambre2);
+      for(int i = 0 ; i < listeReservation.size() ; i++) {
+          Reservation res = listeReservation.get(i);
+          if(Integer.parseInt(res.getChambre()) == chambre1.getNumero()){
+              res.setChambre(chambre2.getNumero());
           }
             }
            }
