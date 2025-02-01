@@ -41,12 +41,13 @@ public class Hotel {
 
 
     public void reserverChambre(Client client , Chambre chambre , String dateDebut , String dateFin) {
-        if (!verifierChambreReserve(chambre)) {
+        if (verifierChambre(chambre.getNumero())) {
             listeReservation.add(new Reservation(client, chambre, dateDebut, dateFin));
+            System.out.println("Réservation effectué pour la chambre " + chambre.getNumero());
+        } else {
+            System.out.println("Le chambre " + chambre.getNumero() + " est déja réservée");
         }
     }
-
-
 
     public void afficherReservations() {
         for(Object reservation : listeReservation) {
@@ -54,20 +55,19 @@ public class Hotel {
         }
     }
     public boolean verifierChambreReserve(Chambre ch) {
-        for (int i = 0 ; i < listeReservation.size() ; i++) {
-            if (Integer.parseInt(listeReservation.get(i).getChambre()) == ch.getNumero()) {
+        for (Reservation reservation : listeReservation) {
+            if(Integer.parseInt(reservation.getChambre()) == ch.getNumero()){
                 return false;
             }
         }
         return true ;
     }
 
-    public void changerAffectation(Client client , Chambre chambre1 , Object chambre2) {
-       for(int i = 0 ; i < listeReservation.size() ; i++) {
-            if(listeReservation.get(i).equals(chambre1)){
-               Reservation chambre2Res = (Reservation) chambre2 ;
-                listeReservation.set(i,chambre2Res) ;
-            }
+    public void changerAffectation(Client client , Chambre chambre1 , Chambre chambre2) {
+      for(int i = 0 ; i < listeChambre.size() ; i++) {
+          if(Objects.equals(chambre1, listeChambre.get(i))) {
+              listeChambre.set(i,chambre2);
+          }
             }
            }
 

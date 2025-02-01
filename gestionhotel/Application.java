@@ -38,15 +38,15 @@ public class Application {
         hotel.reserverChambre(client2, chambre1, dateDebut, dateFin);
 		
 		// Affichage des chambres disponibles (check si la chambre réservé n'apparait réellement pas)
-		//cacherhotel.afficherChambresDisponibles();
+		hotel.afficherChambresDisponibles();
 		
 		// Changement de la réservation du client 1 et de la chamble 1 à la chambre 2 
-		//cacherhotel.changerAffectation(client1,chambre1,chambre2);
+		hotel.changerAffectation(client1,chambre1,chambre2);
 		
 		// Réservation d'une chambre
-		//cacherhotel.reserverChambre(client2, chambre1, dateDebut, dateFin);
+		hotel.reserverChambre(client2, chambre1, dateDebut, dateFin);
 		
-		//cacherhotel.afficherReservations();
+		hotel.afficherReservations();
 		//cacherhotel.afficherChambresDisponibles();
 		
 		// Supression d'une réservation
