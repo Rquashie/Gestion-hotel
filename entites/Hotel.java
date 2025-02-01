@@ -38,8 +38,6 @@ public class Hotel {
         }
     }
 
-
-
     public void reserverChambre(Client client , Chambre chambre , String dateDebut , String dateFin) {
         if (verifierChambre(chambre.getNumero())) {
             listeReservation.add(new Reservation(client, chambre, dateDebut, dateFin));
@@ -71,8 +69,26 @@ public class Hotel {
           }
             }
            }
+    public void supressionReservation(Client client , Chambre chambre) {
+       boolean trouve = false ;
+       for (int i = 0; i < listeReservation.size(); i++) {
+           Reservation res = listeReservation.get(i);
+           if (client.getNom().equals(res.getClient()) && chambre.getNumero()== Integer.parseInt(res.getChambre())) {
+               listeReservation.remove(i);
+               System.out.println("Réservation supprimé");
+               trouve = true ;
+               break;
+           }
+           }
 
+           if(!trouve) {
+               System.out.println("La réservation n'existe pas");
+           }
        }
+
+    }
+
+
 
 
 

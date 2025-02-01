@@ -50,9 +50,9 @@ public class Application {
 		hotel.afficherChambresDisponibles();
 		
 		// Supression d'une réservation
-		//cacher hotel.supressionReservation(client1,chambre2);
+		hotel.supressionReservation(client1,chambre2);
 		
-		//cacherhotel.afficherReservations();
-		//cacherhotel.afficherChambresDisponibles();
+		hotel.afficherReservations();
+		hotel.afficherChambresDisponibles();
     }
 }

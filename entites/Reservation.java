@@ -1,5 +1,7 @@
 package entites;
 
+import java.util.ArrayList;
+
 public class Reservation {
     private String client;
     private int chambre;
@@ -20,6 +22,9 @@ public class Reservation {
     }
     public void setChambre(int chambre) {
         this.chambre = chambre;
+    }
+    public String getNom(){
+        return String.valueOf(client);
     }
 
     public String toString() {
